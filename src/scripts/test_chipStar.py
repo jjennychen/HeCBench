@@ -205,7 +205,7 @@ def main():
 
     # Build benchmark list
     manager = Manager()
-    benches = manager.list()
+    benches = []
     for b in args.bench:
         if b in ['sycl', 'cuda', 'hip']:
             benches.extend([Benchmark(args, k, *v)
@@ -236,7 +236,7 @@ def main():
     if num_filtered_benches:
         print(f"Filtered out {num_filtered_benches} benchmarks."
               " Results already exists in the output file.", flush=True)
-    benches = filtered_benches
+    benches = manager.list(filtered_benches)
 
     # Print out a list of benchmarks to be compiled
     print("*************FROM JSON FILE - START LIST*************")
@@ -260,7 +260,7 @@ def main():
 
     t_compiled = time.time()
 
-    print("hello") # jenny added
+    outfile.seek(0, 2) # go to the end of file for appending (after compiling)
 
     # Print out a list of benchmarks after compiling (failed-to-compile ones are removed)
     print("**********COMPILED BENCHMARKS (READY TO RUN) - START LIST**********")

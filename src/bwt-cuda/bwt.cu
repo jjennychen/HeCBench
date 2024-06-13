@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include "bwt.hpp"
+#include <cuda_runtime.h>
 
 const int blockSize = 256;
 
