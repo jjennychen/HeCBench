@@ -586,8 +586,7 @@
     [
       "-n",
       "8192"
-    ],
-    "bs"
+    ]
   ],
   "bh-cuda": [
     "(?:Total kernel execution time: )([0-9.+-e]+)(?: s)",
@@ -663,8 +662,7 @@
     [
       "200",
       "200"
-    ],
-    "test"
+    ]
   ],
   "cobahh-cuda": [
     "(?:Average kernel execution time )([0-9.+-e]+)(?: \\(us\\))",
