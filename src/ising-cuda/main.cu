@@ -32,6 +32,7 @@
 #endif
 
 #include "cudamacro.h"
+#include <cuda_runtime.h>
 
 #define TCRIT 2.26918531421f
 #define THREADS  128

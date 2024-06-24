@@ -3,3 +3,8 @@ minimod-cuda
 aop-sycl
 bn-hip
 jacobi-hip
+
+
+axhelm-cuda
+mnist-cuda
+bn-cuda

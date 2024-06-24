@@ -45,6 +45,7 @@
 #include <math.h>                  // (in directory known to compiler)      needed by log, pow
 #include <string.h>                  // (in directory known to compiler)      needed by memset
 #include <sys/time.h>                  // (in directory known to compiler)      needed by memset
+#include <cuda_runtime.h>
 
 //======================================================================================================================================================150
 //  COMMON

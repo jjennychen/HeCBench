@@ -139,19 +139,19 @@
     ]
   ],
   "atomicCost-hip": [
-    "(?:Average execution time of (WithoutAtomicOnGlobalMem|WithAtomicOnGlobalMem): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    "(?:Average execution time of (?:WithoutAtomicOnGlobalMem|WithAtomicOnGlobalMem): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
     [
       "10"
     ]
   ],
   "atomicCost-sycl": [
-    "(?:Average execution time of (WithoutAtomicOnGlobalMem|WithAtomicOnGlobalMem): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    "(?:Average execution time of (?:WithoutAtomicOnGlobalMem|WithAtomicOnGlobalMem): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
     [
       "10"
     ]
   ],
   "atomicCost-cuda": [
-    "(?:Average execution time of (WithoutAtomicOnGlobalMem|WithAtomicOnGlobalMem): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    "(?:Average execution time of (?:WithoutAtomicOnGlobalMem|WithAtomicOnGlobalMem): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
     [
       "10"
     ]
@@ -182,20 +182,20 @@
     "(?:Total binomialOptionsGPU\\(\\) time: )([0-9.+-e]+)(?: msec)"
   ],
   "bitonic-sort-sycl": [
-    "(?:Parallel bitonic time )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Total kernel execution time: )([0-9.+-e]+ )\\((?:s|ms)\\)",
     [
       "25",
       "2"
     ]
   ],
   "bonds-sycl": [
-    "(?:Processing time on GPU: )([0-9.+-e]+)(?: \\(ms\\))",
+    "(?:Average kernel execution time on GPU: )([0-9.+-e]+ )\\((?:ms|s)\\)",
     [
       "100"
     ]
   ],
   "bsearch-sycl": [
-    "(?:Average device execution time \\(bs[1-9]\\) )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average kernel execution time \\(bs[1-9]\\) )([0-9.+-e]+)(?: \\(s\\))",
     [
       "16384",
       "1"
@@ -203,13 +203,6 @@
   ],
   "bspline-vgh-sycl": [
     "(?:Total kernel execution time )([0-9.+-e]+)(?: \\(s\\))"
-  ],
-  "burger-sycl": [
-    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\(s\\))",
-    [
-      "2000",
-      "2000"
-    ]
   ],
   "cbsfil-sycl": [
     "(?:Average kernel execution time )([0-9.+-e]+)(?: \\(s\\))",
@@ -294,7 +287,7 @@
     ]
   ],
   "epistasis-sycl": [
-    "(?:Total offloading time: )([0-9.+-e]+)(?: sec)",
+    "(?:Average kernel execution time: )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "146",
       "31339",
@@ -316,7 +309,7 @@
     ]
   ],
   "extend2-sycl": [
-    "(?:Average offload time )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average offload time )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "300"
     ]
@@ -393,7 +386,7 @@
   "nbnxm-sycl": [
     "(?:Average kernel execution time \\(w/o shift\\): )([0-9.+-e]+)(?: \\(s\\))",
     [
-      "100"
+      "10000"
     ]
   ],
   "page-rank-sycl": [
@@ -424,7 +417,7 @@
     ]
   ],
   "pathfinder-sycl": [
-    "(?:Device offloading time = )([0-9.+-e]+)(?:\\(s\\))",
+    "(?:Device offloading time = )([0-9.+-e]+)(?: \\(s\\))",
     [
       "1000",
       "1000",
@@ -487,7 +480,8 @@
   "bn-sycl": [
     "(?:Kernel execution time: )([0-9.+-e]+)(?: \\(s\\))",
     [
-      "/dev/null"
+      "result",
+      "10"
     ]
   ],
   "sheath-sycl": [
@@ -582,7 +576,7 @@
     ]
   ],
   "bezier-surface-cuda": [
-    "(?:device execution time: )([0-9.+-e]+)(?: ms)",
+    "(?:kernel execution time: )([0-9.+-e]+)(?: ms)",
     [
       "-n",
       "8192"
@@ -599,7 +593,7 @@
     "(?:Total binomialOptionsGPU\\(\\) time: )([0-9.+-e]+)(?: msec)"
   ],
   "bitonic-sort-cuda": [
-    "(?:Parallel bitonic time )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Total kernel execution time: )([0-9.+-e]+ )\\((?:s|ms)\\)",
     [
       "25",
       "2"
@@ -617,17 +611,18 @@
   "bn-cuda": [
     "(?:Kernel execution time: )([0-9.+-e]+)(?: \\(s\\))",
     [
-      "/dev/null"
+      "result",
+      "10"
     ]
   ],
   "bonds-cuda": [
-    "(?:Processing time on GPU: )([0-9.+-e]+)(?: \\(ms\\))",
+    "(?:Average kernel execution time on GPU: )([0-9.+-e]+ )\\((?:ms|s)\\)",
     [
       "100"
     ]
   ],
   "bsearch-cuda": [
-    "(?:Average device execution time \\(bs[1-9]\\) )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average kernel execution time \\(bs[1-9]\\) )([0-9.+-e]+)(?: \\(s\\))",
     [
       "16384",
       "1"
@@ -640,13 +635,6 @@
     "(?:Total device execution time = )([0-9.+-e]+)(?: s)",
     [
       "10000000"
-    ]
-  ],
-  "burger-cuda": [
-    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\(s\\))",
-    [
-      "2000",
-      "2000"
     ]
   ],
   "cbsfil-cuda": [
@@ -747,7 +735,7 @@
     ]
   ],
   "epistasis-cuda": [
-    "(?:Total offloading time: )([0-9.+-e]+)(?: sec)",
+    "(?:Average kernel execution time: )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "146",
       "31339",
@@ -769,7 +757,7 @@
     ]
   ],
   "extend2-cuda": [
-    "(?:Average offload time )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average offload time )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "300"
     ]
@@ -870,8 +858,7 @@
     [
       "1000",
       "1000"
-    ],
-    "page-rank"
+    ]
   ],
   "pad-hip": [
     "(?:Total padding execution time for [0-9.+-e]+ iterations: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
@@ -916,7 +903,7 @@
     ]
   ],
   "pathfinder-cuda": [
-    "(?:Device offloading time = )([0-9.+-e]+)(?:\\(s\\))",
+    "(?:Device offloading time = )([0-9.+-e]+)(?: \\(s\\))",
     [
       "1000",
       "1000",
@@ -1176,7 +1163,7 @@
     "(?:Total binomialOptionsGPU\\(\\) time: )([0-9.+-e]+)(?: msec)"
   ],
   "bitonic-sort-hip": [
-    "(?:Parallel bitonic time )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Total kernel execution time: )([0-9.+-e]+ )\\((?:s|ms)\\)",
     [
       "25",
       "2"
@@ -1185,17 +1172,18 @@
   "bn-hip": [
     "(?:Kernel execution time: )([0-9.+-e]+)(?: \\(s\\))",
     [
-      "/dev/null"
+      "result",
+      "10"
     ]
   ],
   "bonds-hip": [
-    "(?:Processing time on GPU: )([0-9.+-e]+)(?: \\(ms\\))",
+    "(?:Average kernel execution time on GPU: )([0-9.+-e]+ )\\((?:ms|s)\\)",
     [
       "100"
     ]
   ],
   "bsearch-hip": [
-    "(?:Average device execution time \\(bs[1-9]\\) )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average kernel execution time \\(bs[1-9]\\) )([0-9.+-e]+)(?: \\(s\\))",
     [
       "16384",
       "1"
@@ -1374,7 +1362,7 @@
     ]
   ],
   "epistasis-hip": [
-    "(?:Total offloading time: )([0-9.+-e]+)(?: sec)",
+    "(?:Average kernel execution time: )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "146",
       "31339",
@@ -1396,7 +1384,7 @@
     ]
   ],
   "extend2-hip": [
-    "(?:Average offload time )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average offload time )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "300"
     ]
@@ -1501,7 +1489,7 @@
   "nbnxm-hip": [
     "(?:Average kernel execution time \\(w/o shift\\): )([0-9.+-e]+)(?: \\(s\\))",
    [
-     "100"
+     "10000"
    ]
   ],
   "page-rank-hip": [
@@ -1690,39 +1678,39 @@
     [ ]
   ],
   "zerocopy-hip": [
-    "(?:Average kernel execution time: )([0-9.+-e]+)(?: s|ms|us)",
+    "(?:Average kernel execution time: )([0-9.+-e]+ )(?:s|ms|us)",
     [
       "100"
     ]
   ],
   "zerocopy-sycl": [
-    "(?:Average kernel execution time: )([0-9.+-e]+)(?: s|ms|us)",
+    "(?:Average kernel execution time: )([0-9.+-e]+ )(?:s|ms|us)",
     [
       "100"
     ]
   ],
   "zerocopy-cuda": [
-    "(?:Average kernel execution time: )([0-9.+-e]+)(?: s|ms|us)",
+    "(?:Average kernel execution time: )([0-9.+-e]+ )(?:s|ms|us)",
     [
       "100"
     ]
   ],
   "zeropoint-hip": [
-    "(?:Average execution time of zero-point kernel: )([0-9.+-e]+)(?: \\(s|ms|us\\))",
+    "(?:Average execution time of zero-point kernel: )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "10000000",
       "100"
     ]
   ],
   "zeropoint-sycl": [
-    "(?:Average execution time of zero-point kernel: )([0-9.+-e]+)(?: \\(s|ms|us\\))",
+    "(?:Average execution time of zero-point kernel: )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "10000000",
       "100"
     ]
   ],
   "zeropoint-cuda": [
-    "(?:Average execution time of zero-point kernel: )([0-9.+-e]+)(?: \\(s|ms|us\\))",
+    "(?:Average execution time of zero-point kernel: )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "10000000",
       "100"
@@ -2119,7 +2107,7 @@
     "hybridsort"
   ],
   "inversek2j-hip": [
-    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(us\\))",
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\(us\\))",
     [
       "../inversek2j-sycl/coord_in.txt",
       "100000"
@@ -2127,7 +2115,7 @@
     "invkin"
   ],
   "inversek2j-sycl": [
-    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(us\\))",
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\(us\\))",
     [
       "../inversek2j-sycl/coord_in.txt",
       "100000"
@@ -2135,7 +2123,7 @@
     "invkin"
   ],
   "inversek2j-cuda": [
-    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(us\\))",
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\(us\\))",
     [
       "../inversek2j-sycl/coord_in.txt",
       "100000"
@@ -2377,42 +2365,42 @@
     ]
   ],
   "medianfilter-hip": [
-    "(?:Average kernel execution time: ) )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(s\\))",
     [
       "../medianfilter-sycl/data/SierrasRGB.ppm",
       "1000"
     ]
   ],
   "medianfilter-sycl": [
-    "(?:Average kernel execution time: ) )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(s\\))",
     [
       "../medianfilter-sycl/data/SierrasRGB.ppm",
       "1000"
     ]
   ],
   "medianfilter-cuda": [
-    "(?:Average kernel execution time: ) )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(s\\))",
     [
       "../medianfilter-sycl/data/SierrasRGB.ppm",
       "1000"
     ]
   ],
   "merge-hip": [
-    "(?:Average kernel execution time: ) )([0-9.+-e]+)(?: \\(us\\))",
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(us\\))",
     [
       "100000",
       "100"
     ]
   ],
   "merge-sycl": [
-    "(?:Average kernel execution time: ) )([0-9.+-e]+)(?: \\(us\\))",
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(us\\))",
     [
       "100000",
       "100"
     ]
   ],
   "merge-cuda": [
-    "(?:Average kernel execution time: ) )([0-9.+-e]+)(?: \\(us\\))",
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(us\\))",
     [
       "100000",
       "100"
@@ -2425,15 +2413,1203 @@
     ]
   ],
   "minkowski-sycl": [
-    "(?:Average kernel execution time: ) )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(s\\))",
     [
       "100"
     ]
   ],
   "minkowski-cuda": [
-    "(?:Average kernel execution time: ) )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(s\\))",
     [
       "100"
+    ]
+  ],
+  "accuracy-hip": [
+    "(?:Average execution time of accuracy kernel: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\)",
+    [
+      "8192",
+      "10000",
+      "10",
+      "100"
+    ]
+  ],
+  "accuracy-sycl": [
+    "(?:Average execution time of accuracy kernel: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\)",
+    [
+      "8192",
+      "10000",
+      "10",
+      "100"
+    ]
+  ],
+  "accuracy-cuda": [
+    "(?:Average execution time of accuracy kernel: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\)",
+    [
+      "8192",
+      "10000",
+      "10",
+      "100"
+    ]
+  ],
+  "addBiasResidualLayerNorm-hip": [
+    "(?:Average execution time of AddBiasResidualLayerNorm \\([0-9.+-e]+ x [0-9.+-e]+\\): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10000"
+    ]
+  ],
+  "addBiasResidualLayerNorm-sycl": [
+    "(?:Average execution time of AddBiasResidualLayerNorm \\([0-9.+-e]+ x [0-9.+-e]+\\): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10000"
+    ]
+  ],
+  "addBiasResidualLayerNorm-cuda": [
+    "(?:Average execution time of AddBiasResidualLayerNorm \\([0-9.+-e]+ x [0-9.+-e]+\\): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10000"
+    ]
+  ],
+  "aes-hip": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100",
+      "0",
+      "../urng-sycl/URNG_Input.bmp"
+    ]
+  ],
+  "aes-sycl": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100",
+      "0",
+      "../urng-sycl/URNG_Input.bmp"
+    ]
+  ],
+  "aes-cuda": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100",
+      "0",
+      "../urng-sycl/URNG_Input.bmp"
+    ]
+  ],
+  "affine-hip": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "data/CT-MONO2-16-brain.raw",
+      "result.raw",
+      "1000000"
+    ]
+  ],
+  "affine-sycl": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "data/CT-MONO2-16-brain.raw",
+      "result.raw",
+      "1000000"
+    ]
+  ],
+  "affine-cuda": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "data/CT-MONO2-16-brain.raw",
+      "result.raw",
+      "1000000"
+    ]
+  ],
+  "aligned-types-hip": [
+    "(?:Avg. time: )([0-9.+-e]+)(?: (?:s|ms|us) )"
+  ],
+  "aligned-types-syc;": [
+    "(?:Avg. time: )([0-9.+-e]+)(?: (?:s|ms|us) )"
+  ],
+  "aligned-types-cuda": [
+    "(?:Avg. time: )([0-9.+-e]+)(?: (?:s|ms|us) )"
+  ],
+  "amgmk-hip": [
+    "(?:Total kernel time = )([0-9.+-e]+)(?: seconds. )",
+    [],
+    "AMGMk"
+  ],
+  "amgmk-sycl": [
+    "(?:Total kernel time = )([0-9.+-e]+)(?: seconds. )",
+    [],
+    "AMGMk"
+  ],
+  "amgmk-cuda": [
+    "(?:Total kernel time = )([0-9.+-e]+)(?: seconds. )",
+    [],
+    "AMGMk"
+  ],
+  "ans-hip": [
+    "(?:Total elapsed time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10"
+    ]
+  ],
+  "ans-sycl": [
+    "(?:Total elapsed time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10"
+    ]
+  ],
+  "ans-cuda": [
+    "(?:Total elapsed time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10"
+    ]
+  ],
+  "assert-hip": [
+    "(?:Kernel time : )([0-9.+-e]+)"
+  ],
+  "assert-sycl": [
+    "(?:Kernel time : )([0-9.+-e]+)"
+  ],
+  "assert-cuda": [
+    "(?:Kernel time : )([0-9.+-e]+)"
+  ],
+  "atan2-hip": [
+    "(?:Average execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10000000",
+      "100"
+    ]
+  ],
+  "atan2-sycl": [
+    "(?:Average execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10000000",
+      "100"
+    ]
+  ],
+  "atan2-cuda": [
+    "(?:Average execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10000000",
+      "100"
+    ]
+  ],
+  "atomicIntrinsics-hip": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100"
+    ]
+  ],
+  "atomicIntrinsics-sycl": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100"
+    ]
+  ],
+  "atomicIntrinsics-cuda": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100"
+    ]
+  ],
+  "atomicPerf-hip": [
+    "(?:Average execution time of .*: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1024"
+    ]
+  ],
+  "atomicPerf-sycl": [
+    "(?:Average execution time of .*: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1024"
+    ]
+  ],
+  "atomicPerf-cuda": [
+    "(?:Average execution time of .*: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1024"
+    ]
+  ],
+  "atomicSystemWide-hip": [
+    "(?:Execution time of atomic kernels on host and device: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "atomicSystemWide-sycl": [
+    "(?:Execution time of atomic kernels on host and device: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "atomicSystemWide-cuda": [
+    "(?:Execution time of atomic kernels on host and device: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "attentionMultiHead-hip": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100000"
+    ]
+  ],
+  "attentionMultiHead-sycl": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100000"
+    ]
+  ],
+  "attentionMultiHead-cuda": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100000"
+    ]
+  ],
+  "axhelm-hip": [
+    "(?:Execution time of atomic kernels on host and device: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1",
+      "8000",
+      "100"
+    ]
+  ],
+  "axhelm-sycl": [
+    "(?:Execution time of atomic kernels on host and device: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1",
+      "8000",
+      "100"
+    ]
+  ],
+  "axhelm-cuda": [
+    "(?:Execution time of atomic kernels on host and device: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1",
+      "8000",
+      "100"
+    ]
+  ],
+  "babelstream-hip": [
+    "N/A"
+  ],
+  "babelstream-sycl": [
+    "N/A"
+  ],
+  "babelstream-cuda": [
+    "N/A"
+  ],
+  "background-subtract-hip": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "4096",
+      "2048",
+      "0",
+      "102"
+    ]
+  ],
+  "background-subtract-sycl": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "4096",
+      "2048",
+      "0",
+      "102"
+    ]
+  ],
+  "background-subtract-cuda": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "4096",
+      "2048",
+      "0",
+      "102"
+    ]
+  ],
+  "bincount-hip": [
+    "(?:Average execution time of bincount kernel: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10000000",
+      "100"
+    ]
+  ],
+  "bincount-sycl": [
+    "(?:Average execution time of bincount kernel: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10000000",
+      "100"
+    ]
+  ],
+  "bincount-cuda": [
+    "(?:Average execution time of bincount kernel: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10000000",
+      "100"
+    ]
+  ],
+  "bscan-hip": [
+    "(?:Average execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "bscan-sycl": [
+    "(?:Average execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "bscan-cuda": [
+    "(?:Average execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "b+tree-hip": [
+    "(?:Tree transformation took )([0-9.+-e]+)",
+    [
+      "file",
+      "../data/b+tree/mil.txt",
+      "command",
+      "../data/b+tree/command.txt"
+    ]
+  ],
+  "b+tree-sycl": [
+    "(?:Tree transformation took )([0-9.+-e]+)",
+    [
+      "file",
+      "../data/b+tree/mil.txt",
+      "command",
+      "../data/b+tree/command.txt"
+    ]
+  ],
+  "b+tree-cuda": [
+    "(?:Tree transformation took )([0-9.+-e]+)",
+    [
+      "file",
+      "../data/b+tree/mil.txt",
+      "command",
+      "../data/b+tree/command.txt"
+    ]
+  ],
+  "car-hip": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100"
+    ]
+  ],
+  "car-sycl": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100"
+    ]
+  ],
+  "car-cuda": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100"
+    ]
+  ],
+  "ced-hip": [
+    "(?:Total time )([0-9.+-e]+)(?: secs )",
+    [
+      "-a",
+      "0"
+    ],
+    "ced"
+  ],
+  "ced-sycl": [
+    "(?:Total time )([0-9.+-e]+)(?: secs )",
+    [
+      "-a",
+      "0"
+    ],
+    "ced"
+  ],
+  "ced-cuda": [
+    "(?:Total time )([0-9.+-e]+)(?: secs )",
+    [
+      "-a",
+      "0"
+    ],
+    "ced"
+  ],
+  "chacha20-hip": [
+    "(?:Average execution time of kernels: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100000"
+    ]
+  ],
+  "chacha20-sycl": [
+    "(?:Average execution time of kernels: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100000"
+    ]
+  ],
+  "chacha20-cuda": [
+    "(?:Average execution time of kernels: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "100000"
+    ]
+  ],
+  "channelShuffle-hip": [
+    "(?:Average time of channel shuffle \\((?:nhwc|nchw)\\): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "2",
+      "224",
+      "224",
+      "100"
+    ]
+  ],
+  "channelShuffle-sycl": [
+    "(?:Average time of channel shuffle \\((?:nhwc|nchw)\\): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "2",
+      "224",
+      "224",
+      "100"
+    ]
+  ],
+  "channelShuffle-cuda": [
+    "(?:Average time of channel shuffle \\((?:nhwc|nchw)\\): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "2",
+      "224",
+      "224",
+      "100"
+    ]
+  ],
+  "che-hip": [
+    "(?:Kernel exeuction time on the GPU \\([0-9]+ iterations\\) = )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "che-sycl": [
+    "(?:Kernel exeuction time on the GPU \\([0-9]+ iterations\\) = )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "che-cuda": [
+    "(?:Kernel exeuction time on the GPU \\([0-9]+ iterations\\) = )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "clink-hip": [
+    "(?:Average kernel time: )([0-9.+-e]+)(?: (?:s|ms|us))",
+    [
+      "10"
+    ]
+  ],
+  "clink-sycl": [
+    "(?:Average kernel time: )([0-9.+-e]+)(?: (?:s|ms|us))",
+    [
+      "10"
+    ]
+  ],
+  "clink-cuda": [
+    "(?:Average kernel time: )([0-9.+-e]+)(?: (?:s|ms|us))",
+    [
+      "10"
+    ]
+  ],
+  "clock-hip": [
+    "(?:Total clocks = )([0-9.+-e]+)"
+  ],
+  "clock-cuda": [
+    "(?:Total clocks = )([0-9.+-e]+)"
+  ],
+  "cmp-hip": [
+    "(?:Device offload time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "-c0",
+      "1.98e-7",
+      "-c1",
+      "1.77e-6",
+      "-nc",
+      "5",
+      "-aph",
+      "600",
+      "-tau",
+      "0.002",
+      "-v",
+      "2",
+      "-i",
+      "../cmp-cuda/data/simple-synthetic.su"
+    ]
+  ],
+  "cmp-sycl": [
+    "(?:Device offload time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "-c0",
+      "1.98e-7",
+      "-c1",
+      "1.77e-6",
+      "-nc",
+      "5",
+      "-aph",
+      "600",
+      "-tau",
+      "0.002",
+      "-v",
+      "2",
+      "-i",
+      "../cmp-cuda/data/simple-synthetic.su"
+    ]
+  ],
+  "cmp-cuda": [
+    "(?:Device offload time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "-c0",
+      "1.98e-7",
+      "-c1",
+      "1.77e-6",
+      "-nc",
+      "5",
+      "-aph",
+      "600",
+      "-tau",
+      "0.002",
+      "-v",
+      "2",
+      "-i",
+      "../cmp-cuda/data/simple-synthetic.su"
+    ]
+  ],
+  "collision-hip": [
+    "(?:Average execution time of the function .*: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "collision-sycl": [
+    "(?:Average execution time of the function .*: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "collision-cuda": [
+    "(?:Average execution time of the function .*: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "concat-hip": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "concat-sycl": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "concat-cuda": [
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "1000"
+    ]
+  ],
+  "contract-hip": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "64",
+      "5"
+    ]
+  ],
+  "contract-sycl": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "64",
+      "5"
+    ]
+  ],
+  "contract-cuda": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "64",
+      "5"
+    ]
+  ],
+  "conversion-hip": [
+    "(?:size\\(GB\\):[0-9.+-e]+, average time\\(sec\\):)([0-9.+-e]+)(?:, BW:[0-9.+-e]+)",
+    [
+      "268435456",
+      "10"
+    ]
+  ],
+  "conversion-sycl": [
+    "(?:size\\(GB\\):[0-9.+-e]+, average time\\(sec\\):)([0-9.+-e]+)(?:, BW:[0-9.+-e]+)",
+    [
+      "268435456",
+      "10"
+    ]
+  ],
+  "conversion-cuda": [
+    "(?:size\\(GB\\):[0-9.+-e]+, average time\\(sec\\):)([0-9.+-e]+)(?:, BW:[0-9.+-e]+)",
+    [
+      "268435456",
+      "10"
+    ]
+  ],
+  "crc64-hip": [
+    "([0-9.+-e]+)(?: MB/s)",
+    [
+      "10",
+      "5",
+      "33554432"
+    ]
+  ],
+  "crc64-sycl": [
+    "([0-9.+-e]+)(?: MB/s)",
+    [
+      "10",
+      "5",
+      "33554432"
+    ]
+  ],
+  "crc64-cuda": [
+    "([0-9.+-e]+)(?: MB/s)",
+    [
+      "10",
+      "5",
+      "33554432"
+    ]
+  ],
+  "crossEntropy-hip": [
+    "(?:Average GPU kernel time \\(ms\\) : )([0-9.+-e]+)",
+    [
+      "100"
+    ]
+  ],
+  "crossEntropy-sycl": [
+    "(?:Average GPU kernel time \\(ms\\) : )([0-9.+-e]+)",
+    [
+      "100"
+    ]
+  ],
+  "crossEntropy-cuda": [
+    "(?:Average GPU kernel time \\(ms\\) : )([0-9.+-e]+)",
+    [
+      "100"
+    ]
+  ],
+  "d2q9-bgk-hip": [
+    "(?:After warmup for [0-9]+ iterations, average kernel execution time over [0-9]+ iterations:.*)([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "Inputs/input_256x256.params",
+      "Obstacles/obstacles_256x256.dat"
+    ]
+  ],
+  "d2q9-bgk-sycl": [
+    "(?:After warmup for [0-9]+ iterations, average kernel execution time over [0-9]+ iterations:.*)([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "Inputs/input_256x256.params",
+      "Obstacles/obstacles_256x256.dat"
+    ]
+  ],
+  "d2q9-bgk-cuda": [
+    "(?:After warmup for [0-9]+ iterations, average kernel execution time over [0-9]+ iterations:.*)([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "Inputs/input_256x256.params",
+      "Obstacles/obstacles_256x256.dat"
+    ]
+  ],
+  "ddbp-hip": [
+    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "ddbp-sycl": [
+    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "ddbp-cuda": [
+    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "deredundancy-hip": [
+    "(?:Device offload time )([0-9.+-e]+)(?: secs )",
+    [
+      "i",
+      "../deredundancy-sycl/testData.fasta"
+    ]
+  ],
+  "deredundancy-sycl": [
+    "(?:Device offload time )([0-9.+-e]+)(?: secs )",
+    [
+      "i",
+      "../deredundancy-sycl/testData.fasta"
+    ]
+  ],
+  "deredundancy-cuda": [
+    "(?:Device offload time )([0-9.+-e]+)(?: secs )",
+    [
+      "i",
+      "../deredundancy-sycl/testData.fasta"
+    ]
+  ],
+  "dispatch-hip": [
+    "(?:Enqueue rate: mean = )([0-9:.+-e]+)(?: us, stddev = [0-9:.+-e]+ us)"
+  ],
+  "dispatch-sycl": [
+    "(?:Enqueue rate: mean = )([0-9:.+-e]+)(?: us, stddev = [0-9:.+-e]+ us)"
+  ],
+  "dispatch-cuda": [
+    "(?:Enqueue rate: mean = )([0-9:.+-e]+)(?: us, stddev = [0-9:.+-e]+ us)"
+  ],
+  "easyWave-hip": [
+    "(?:.+elapsed: )([0-9.+-e]+)(?: msec)",
+    [
+      "-grid",
+      "../easyWave-omp/data/grids/e2Asean.grd",
+      "-source",
+      "../easyWave-omp/data/faults/BengkuluSept2007.flt",
+      "-time",
+      "120"
+    ]
+  ],
+  "easyWave-sycl": [
+    "(?:.+elapsed: )([0-9.+-e]+)(?: msec)",
+    [
+      "-grid",
+      "../easyWave-omp/data/grids/e2Asean.grd",
+      "-source",
+      "../easyWave-omp/data/faults/BengkuluSept2007.flt",
+      "-time",
+      "120"
+    ]
+  ],
+  "easyWave-cuda": [
+    "(?:.+elapsed: )([0-9.+-e]+)(?: msec)",
+    [
+      "-grid",
+      "../easyWave-omp/data/grids/e2Asean.grd",
+      "-source",
+      "../easyWave-omp/data/faults/BengkuluSept2007.flt",
+      "-time",
+      "120"
+    ]
+  ],
+  "gpp-cuda": [
+    "(?:Average kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "grep-hip": [
+    "(?:Kernel execution Time )([0-9.+-e]+)",
+    [],
+    "runtests.sh"
+  ],
+  "grep-sycl": [
+    "(?:Kernel execution Time )([0-9.+-e]+)",
+    [],
+    "runtests.sh"
+  ],
+  "grep-cuda": [
+    "(?:Kernel execution Time )([0-9.+-e]+)",
+    [],
+    "runtests.sh"
+  ],
+  "grrt-hip": [
+    "(?:Total kernel execution time \\(task[1-2]\\) )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "grrt-sycl": [
+    "(?:Total kernel execution time \\(task[1-2]\\) )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "grrt-cuda": [
+    "(?:Total kernel execution time \\(task[1-2]\\) )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "hexciton-hip": [
+    "(?:Total kernel time for all benchmarks )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "hexciton-sycl": [
+    "(?:Total kernel time for all benchmarks )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "hexciton-cuda": [
+    "(?:Total kernel time for all benchmarks )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "keccaktreehash-sycl": [
+    "(?:GPU speed : )([0-9.+-e]+)(?: kB/s)",
+    [
+      "10",
+      "10",
+      "10"
+    ],
+    "keccektree",
+    {
+      "invert": true
+    }
+  ],
+  "keccaktreehash-cuda": [
+    "(?:GPU speed : )([0-9.+-e]+)(?: kB/s)",
+    [
+      "10",
+      "10",
+      "10"
+    ],
+    "keccektree",
+    {
+      "invert": true
+    }
+  ],
+  "lanczos-hip": [
+    "(?:GPU Lanczos time: )([0-9:.+-e]+)(?: sec)",
+    [
+      "-g data/social-large-800k.txt -n 800000 -k 3 -d float"
+    ]
+  ],
+  "lanczos-sycl": [
+    "(?:GPU Lanczos time: )([0-9:.+-e]+)(?: sec)",
+    [
+      "-g data/social-large-800k.txt -n 800000 -k 3 -d float"
+    ]
+  ],
+  "lanczos-cuda": [
+    "(?:GPU Lanczos time: )([0-9:.+-e]+)(?: sec)",
+    [
+      "-g data/social-large-800k.txt -n 800000 -k 3 -d float"
+    ]
+  ],
+  "langford-hip": [
+    "(?:Kernel execution time:  )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "langford-sycl": [
+    "(?:Kernel execution time:  )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "langford-cuda": [
+    "(?:Kernel execution time:  )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "lci-hip": [
+    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "lci-sycl": [
+    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "lci-cuda": [
+    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "ldpc-hip": [
+    "(?:Total kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "ldpc-sycl": [
+    "(?:Total kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "ldpc-cuda": [
+    "(?:Total kernel execution time: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "lid-driven-cavity-hip": [
+    "(?:Total execution time of the iteration loop: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "lid-driven-cavity-sycl": [
+    "(?:Total execution time of the iteration loop: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "lid-driven-cavity-cuda": [
+    "(?:Total execution time of the iteration loop: )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "mdh-hip": [
+    "(?:GPU Time: )([0-9.+-e]+)",
+    [
+      "-itmax 100"
+    ]
+  ],
+  "mdh-sycl": [
+    "(?:GPU Time: )([0-9.+-e]+)",
+    [
+      "-itmax 100"
+    ]
+  ],
+  "mdh-cuda": [
+    "(?:GPU Time: )([0-9.+-e]+)",
+    [
+      "-itmax 100"
+    ]
+  ],
+  "merkle-cuda": [
+    "(?: )([0-9.+-e]+)(?: (?:s|ms|us))"
+  ],
+  "metropolis-hip": [
+    "(?:Total kernel time \\(metropolis simulation\\) )([0-9.+-e]+)(?: secs)",
+    [
+      "-l",
+      "32",
+      "11",
+      "-t",
+      "4.7",
+      "0.1",
+      "-a",
+      "10",
+      "2",
+      "2000",
+      "10",
+      "-h",
+      "1.0",
+      "-z",
+      "7919"
+    ]
+  ],
+  "metropolis-sycl": [
+    "(?:Total kernel time \\(metropolis simulation\\) )([0-9.+-e]+)(?: secs)",
+    [
+      "-l",
+      "32",
+      "11",
+      "-t",
+      "4.7",
+      "0.1",
+      "-a",
+      "10",
+      "2",
+      "2000",
+      "10",
+      "-h",
+      "1.0",
+      "-z",
+      "7919"
+    ]
+  ],
+  "metropolis-cuda": [
+    "(?:Total kernel time \\(metropolis simulation\\) )([0-9.+-e]+)(?: secs)",
+    [
+      "-l",
+      "32",
+      "11",
+      "-t",
+      "4.7",
+      "0.1",
+      "-a",
+      "10",
+      "2",
+      "2000",
+      "10",
+      "-h",
+      "1.0",
+      "-z",
+      "7919"
+    ]
+  ],
+  "minibude-hip": [
+    "(?:- Average kernel time:   )([0-9.+-e]+)(?: (?:s|ms|us))",
+    [
+      "--wgsize",
+      "256",
+      "--iterations",
+      "100"
+    ]
+  ],
+  "minibude-sycl": [
+    "(?:- Average kernel time:   )([0-9.+-e]+)(?: (?:s|ms|us))",
+    [
+      "--wgsize",
+      "256",
+      "--iterations",
+      "100"
+    ]
+  ],
+  "minibude-cuda": [
+    "(?:- Average kernel time:   )([0-9.+-e]+)(?: (?:s|ms|us))",
+    [
+      "--wgsize",
+      "256",
+      "--iterations",
+      "100"
+    ]
+  ],
+  "miniWeather-hip": [
+    "(?:Total main time step loop: )([0-9.+-e]+)(?: sec)"
+  ],
+  "miniWeather-sycl": [
+    "(?:Total main time step loop: )([0-9.+-e]+)(?: sec)"
+  ],
+  "miniWeather-cuda": [
+    "(?:Total main time step loop: )([0-9.+-e]+)(?: sec)"
+  ],
+  "mmcsf-hip": [
+    "(?:Total GPU time: )([0-9.+-e]+)(?: sec)",
+    [
+      "-i",
+      "../mmcsf-cuda/toy.tns",
+      "-m",
+      "0",
+      "-R",
+      "32",
+      "-f",
+      "128",
+      "-w",
+      "4"
+    ]
+  ],
+  "mmcsf-sycl": [
+    "(?:Total GPU time: )([0-9.+-e]+)(?: sec)",
+    [
+      "-i",
+      "../mmcsf-cuda/toy.tns",
+      "-m",
+      "0",
+      "-R",
+      "32",
+      "-f",
+      "128",
+      "-w",
+      "4"
+    ]
+  ],
+  "mmcsf-cuda": [
+    "(?:Total GPU time: )([0-9.+-e]+)(?: sec)",
+    [
+      "-i",
+      "../mmcsf-cuda/toy.tns",
+      "-m",
+      "0",
+      "-R",
+      "32",
+      "-f",
+      "128",
+      "-w",
+      "4"
+    ]
+  ],
+  "nbnxm-cuda": [
+    "(?:Average kernel execution time \\(w/o shift\\): )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))",
+    [
+      "10000"
+    ]
+  ],
+  "perlin-hip": [
+    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "perlin-sycl": [
+    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "perlin-cuda": [
+    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+  ],
+  "rsbench-hip": [
+    "(?:Kernel initialization, compilation, and execution took )([0-9:.+-e]+)(?: seconds.)",
+    [
+      "-s",
+      "small",
+      "-m",
+      "event"
+    ],
+    "rsbench"
+  ],
+  "rsbench-sycl": [
+    "(?:Kernel initialization, compilation, and execution took )([0-9:.+-e]+)(?: seconds.)",
+    [
+      "-s",
+      "small",
+      "-m",
+      "event"
+    ],
+    "rsbench"
+  ],
+  "rsbench-cuda": [
+    "(?:Kernel initialization, compilation, and execution took )([0-9:.+-e]+)(?: seconds.)",
+    [
+      "-s",
+      "small",
+      "-m",
+      "event"
+    ],
+    "rsbench"
+  ],
+  "sssp-hip": [
+    "(?:Kernel on Device time \\((?:s|ms|us)\\): )([0-9.+-e]+)",
+    [
+      "-g",
+      "120",
+      "-t",
+      "1",
+      "-w",
+      "10",
+      "-r",
+      "100"
+    ]
+  ],
+  "sssp-sycl": [
+    "(?:Kernel on Device time \\((?:s|ms|us)\\): )([0-9.+-e]+)",
+    [
+      "-g",
+      "120",
+      "-t",
+      "1",
+      "-w",
+      "10",
+      "-r",
+      "100"
+    ]
+  ],
+  "sssp-cuda": [
+    "(?:Kernel on Device time \\((?:s|ms|us)\\): )([0-9.+-e]+)",
+    [
+      "-g",
+      "120",
+      "-t",
+      "1",
+      "-w",
+      "10",
+      "-r",
+      "100"
+    ]
+  ],
+  "testSNAP-hip": [
+    "(?:   Total kernel time = )([0-9.+-e]+)(?: \\[msec/step\\])",
+    [
+      "--nsteps",
+      "100"
+    ]
+  ],
+  "testSNAP-sycl": [
+    "(?:   Total kernel time = )([0-9.+-e]+)(?: \\[msec/step\\])",
+    [
+      "--nsteps",
+      "100"
+    ]
+  ],
+  "testSNAP-cuda": [
+    "(?:   Total kernel time = )([0-9.+-e]+)(?: \\[msec/step\\])",
+    [
+      "--nsteps",
+      "100"
+    ]
+  ],
+  "winograd-sycl": [
+    "(?:Total time: )([0-9.+-e]+)(?: (?:s|ms|us))"
+  ],
+  "winograd-cuda": [
+    "(?:Total time: )([0-9.+-e]+)(?: (?:s|ms|us))"
+  ],
+  "xlqc-hip": [
+    "(?:Total kernel Mat_[JK] time: )([0-9.+-e]+)(?: usec)"
+  ],
+  "xlqc-sycl": [
+    "(?:Total kernel Mat_[JK] time: )([0-9.+-e]+)(?: usec)"
+  ],
+  "xlqc-cuda": [
+    "(?:Total kernel Mat_[JK] time: )([0-9.+-e]+)(?: usec)"
+  ],
+  "zoom-hip": [
+    "(?:Average execution time of the zoom-in|out kernel: )([0-9.+-e]+)(?: \\(s|ms|us\\))",
+    [
+      "1",
+      "3",
+      "2160",
+      "4096",
+      "1000"
+    ]
+  ],
+  "zoom-sycl": [
+    "(?:Average execution time of the zoom-in|out kernel: )([0-9.+-e]+)(?: \\(s|ms|us\\))",
+    [
+      "1",
+      "3",
+      "2160",
+      "4096",
+      "1000"
+    ]
+  ],
+  "zoom-cuda": [
+    "(?:Average execution time of the zoom-in|out kernel: )([0-9.+-e]+)(?: \\(s|ms|us\\))",
+    [
+      "1",
+      "3",
+      "2160",
+      "4096",
+      "1000"
     ]
   ]
 }

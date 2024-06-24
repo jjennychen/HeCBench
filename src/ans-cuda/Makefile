@@ -1,6 +1,7 @@
 ARCH = 60
+CC = nvcc
 
-NVCC = nvcc
+NVCC = $(CC)
 NVCC_ARCH = -gencode arch=compute_$(ARCH),code=sm_$(ARCH)
 NVCC_FLAGS = --std=c++14 -O3 -arch=sm_$(ARCH) -Xcompiler="-pthread" 
 

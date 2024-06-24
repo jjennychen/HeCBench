@@ -54,6 +54,7 @@ class Benchmark:
         return self.name == other.name
 
     def compile(self, benches, outfile_name, lock):
+        print("***compiling: ", self.name)
         if self.clean:
             subprocess.run(["make", "clean"], cwd=self.path).check_returncode()
             time.sleep(1) # required to make sure clean is done before building, despite run waiting on the invoked executable
@@ -61,9 +62,8 @@ class Benchmark:
         out = subprocess.DEVNULL
         if self.verbose:
             out = subprocess.PIPE
-
-        proc = subprocess.run(["make"] + self.MAKE_ARGS, cwd=self.path, stdout=out, stderr=subprocess.STDOUT, encoding="utf-8")
         try:
+            proc = subprocess.run(["make"] + self.MAKE_ARGS, cwd=self.path, stdout=out, stderr=subprocess.STDOUT, encoding="utf-8")
             proc.check_returncode()
         except subprocess.CalledProcessError as e:
             print(f'Failed compilation in {self.path}.\n{e}')
@@ -84,8 +84,8 @@ class Benchmark:
             with lock:
                 with open(outfile_name, 'a') as f:
                     f.write(self.name + ",FAILED,N/A," + str(cause.stdout).replace('\n', ' ').replace(',', ' ') + str(cause.stderr).replace('\n', ' ').replace(',', ' ') + "\n")
-            print(cause.stdout)
-            print(cause.stderr)
+            #print(cause.stdout)
+            #print(cause.stderr)
             print("-----------------------------------------------------------------------------------------")
             with lock:
                 benches.remove(self)
@@ -124,7 +124,10 @@ class Benchmark:
             print("[REGEX MATCHING RESULT]")
             for i in res:
                 print(i)
-            res_l.append(sum([float(i) for i in res])) #in case of multiple outputs sum them
+            ## Flatten the list of tuples to a list of strings
+            #flat_res = [item for sublist in res for item in (sublist if isinstance(sublist, tuple) else (sublist,))]
+            # Convert the strings to floats
+            res_l.append(sum([float(i) for i in res]))  # in case of multiple outputs sum them
             if self.invert:
                 res_l[2] = 1/res_l[2]
         if verify_res:
