@@ -3115,13 +3115,13 @@
     ]
   ],
   "ddbp-hip": [
-    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+    "(?:Total kernel execution )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
   ],
   "ddbp-sycl": [
-    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+    "(?:Total kernel execution )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
   ],
   "ddbp-cuda": [
-    "(?:Total kernel execution time )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
+    "(?:Total kernel execution )([0-9.+-e]+)(?: \\((?:s|ms|us)\\))"
   ],
   "deredundancy-hip": [
     "(?:Device offload time )([0-9.+-e]+)(?: secs )",
@@ -3583,7 +3583,7 @@
     "(?:Total kernel Mat_[JK] time: )([0-9.+-e]+)(?: usec)"
   ],
   "zoom-hip": [
-    "(?:Average execution time of the zoom-in|out kernel: )([0-9.+-e]+)(?: \\(s|ms|us\\))",
+    "(?:Average execution time of the zoom-(?:in|out) kernel: )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "1",
       "3",
@@ -3593,7 +3593,7 @@
     ]
   ],
   "zoom-sycl": [
-    "(?:Average execution time of the zoom-in|out kernel: )([0-9.+-e]+)(?: \\(s|ms|us\\))",
+    "(?:Average execution time of the zoom-(?:in|out) kernel: )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "1",
       "3",
@@ -3603,7 +3603,7 @@
     ]
   ],
   "zoom-cuda": [
-    "(?:Average execution time of the zoom-in|out kernel: )([0-9.+-e]+)(?: \\(s|ms|us\\))",
+    "(?:Average execution time of the zoom-(?:in|out) kernel: )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
     [
       "1",
       "3",

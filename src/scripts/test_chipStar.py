@@ -28,7 +28,7 @@ class Benchmark:
                 self.MAKE_ARGS.append('GPU=no')
         elif name.endswith('cuda'):
             self.MAKE_ARGS = ['CUDA_ARCH=sm_{}'.format(args.nvidia_sm)]
-            self.MAKE_ARGS.append('CC="{}"'.format(args.compiler_name)) # jenny added for cucc compiler
+            #self.MAKE_ARGS.append('CC="{}"'.format(args.compiler_name)) # jenny added for cucc compiler
         else:
             self.MAKE_ARGS = []
 

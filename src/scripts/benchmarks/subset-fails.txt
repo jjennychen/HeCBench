@@ -8,3 +8,4 @@ jacobi-hip
 axhelm-cuda
 mnist-cuda
 bn-cuda
+addBiasResidualLayerNorm-cuda
