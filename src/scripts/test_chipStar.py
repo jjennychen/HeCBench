@@ -103,7 +103,7 @@ class Benchmark:
             print(out)
         res = re.findall(self.res_regex, out)
         # Find in output for verification keywords
-        verify_res = re.findall('not passed|pass|fail|succe|correct', out.lower())
+        verify_res = re.findall(r'\b(passed|failed|pass|fail|success|failure|gpu result matches cpu result|gpu result doesn\'t match cpu|correct|incorrect!!|valid|warning - invalid checksum!)\b', out.lower())
         print("[VALIDATION]")
         if not verify_res:
             print("N/A")
@@ -133,11 +133,13 @@ class Benchmark:
         if verify_res:
             passing = True
             for v in verify_res:
-                if ("pass" not in v.lower() and "succe" not in v.lower() and "correct" not in v.lower()) or v.lower() == "not passed":
+                v = v.lower()
+                if (("fail" in v or "warning - inavalid checksum!" in v or "gpu result doesn\'t match cpu" in v or "incorrect!!" in v) or
+                    ("pass" not in v and "success" not in v and "gpu result matches cpu result" not in v and "valid" not in v and "correct" not in v)):
                     passing = False
-                    res_l.append("FAIL")
-                    break
-            if passing: res_l.append("PASS")
+            if (passing): res_l.append("PASS")
+            else: 
+              res_l.append("FAIL")
         else: res_l.append("N/A")
         
         res_l.append(str(self.res_regex).replace(',', ' '))

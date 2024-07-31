@@ -1779,8 +1779,8 @@
   "dxtc1-hip": [
     "(?:Average kernel execution time )([0-9.+-e]+)(?: \\(s\\))",
     [
-      "../dxtc1-sycl/data/lena_std.ppm",
-      "../dxtc1-sycl/data/lena_ref.dds",
+      "../dxtc2-sycl/data/lena_std.ppm",
+      "../dxtc2-sycl/data/lena_ref.dds",
       "100"
     ]
   ],
@@ -1795,8 +1795,8 @@
   "dxtc1-cuda": [
     "(?:Average kernel execution time )([0-9.+-e]+)(?: \\(s\\))",
     [
-      "../dxtc1-sycl/data/lena_std.ppm",
-      "../dxtc1-sycl/data/lena_ref.dds",
+      "../dxtc2-sycl/data/lena_std.ppm",
+      "../dxtc2-sycl/data/lena_ref.dds",
       "100"
     ]
   ],
@@ -3384,6 +3384,8 @@
   "minibude-hip": [
     "(?:- Average kernel time:   )([0-9.+-e]+)(?: (?:s|ms|us))",
     [
+      "--deck",
+      "../minibude-sycl/data/bm1",
       "--wgsize",
       "256",
       "--iterations",
@@ -3393,6 +3395,8 @@
   "minibude-sycl": [
     "(?:- Average kernel time:   )([0-9.+-e]+)(?: (?:s|ms|us))",
     [
+      "--deck",
+      "../minibude-sycl/data/bm1",
       "--wgsize",
       "256",
       "--iterations",
@@ -3402,20 +3406,13 @@
   "minibude-cuda": [
     "(?:- Average kernel time:   )([0-9.+-e]+)(?: (?:s|ms|us))",
     [
+      "--deck",
+      "../minibude-sycl/data/bm1",
       "--wgsize",
       "256",
       "--iterations",
       "100"
     ]
-  ],
-  "miniWeather-hip": [
-    "(?:Total main time step loop: )([0-9.+-e]+)(?: sec)"
-  ],
-  "miniWeather-sycl": [
-    "(?:Total main time step loop: )([0-9.+-e]+)(?: sec)"
-  ],
-  "miniWeather-cuda": [
-    "(?:Total main time step loop: )([0-9.+-e]+)(?: sec)"
   ],
   "mmcsf-hip": [
     "(?:Total GPU time: )([0-9.+-e]+)(?: sec)",
@@ -3610,6 +3607,24 @@
       "2160",
       "4096",
       "1000"
+    ]
+  ],
+  "fluidSim-cuda": [
+    "(?:Average kernel execution time )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
+    [
+      "10000"
+    ]
+  ],
+  "fluidSim-sycl": [
+    "(?:Average kernel execution time )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
+    [
+      "10000"
+    ]
+  ],
+  "fluidSim-hip": [
+    "(?:Average kernel execution time )([0-9.+-e]+ )\\((?:s|ms|us)\\)",
+    [
+      "10000"
     ]
   ]
 }
